@@ -1,1 +1,1 @@
-web: gunicorn django_crud_api.wsgi --log-file -
+web: python manage.py migrate && gunicorn django_crud_api.wsgi
