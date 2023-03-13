@@ -1,2 +1,4 @@
-[phases.setup]
 providers = ["nodejs", "python"]
+
+[variables]
+NODE_ENV = 'production'
