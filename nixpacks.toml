@@ -1,4 +1,4 @@
-providers = ["nodejs", "python"]
+providers = ["node", "python"]
 
 [variables]
 NODE_ENV = 'production'
