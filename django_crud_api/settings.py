@@ -126,15 +126,12 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-# STATIC_DIRS = [
-#     os.path.join(BASE_DIR, "static"),
-# ]
+
 STATICFILES_DIRS = [
   # Tell Django where to look for React's static files (css, js)
-#   os.path.join(BASE_DIR, "client", "dist"),
   os.path.join(BASE_DIR, "client", "dist")
 ]
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # Default primary key field type
