@@ -55,7 +55,8 @@ ROOT_URLCONF = "django_crud_api.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        # Tell Django where to find Reacts index.html file
+        "DIRS": [os.path.join(BASE_DIR, "client", "dist")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -125,8 +126,16 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATIC_DIRS = [os.path.join(BASE_DIR, "static")]
+# STATIC_DIRS = [
+#     os.path.join(BASE_DIR, "static"),
+# ]
+STATICFILES_DIRS = [
+  # Tell Django where to look for React's static files (css, js)
+#   os.path.join(BASE_DIR, "client", "dist"),
+  os.path.join(BASE_DIR, "client", "dist")
+]
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

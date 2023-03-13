@@ -1,1 +1,1 @@
-web: python manage.py migrate && python manage.py collectstatic && gunicorn django_crud_api.wsgi
+web: cd client && npm run build && cd .. && python manage.py migrate && python manage.py collectstatic && gunicorn django_crud_api.wsgi
