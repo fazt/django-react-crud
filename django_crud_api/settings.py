@@ -33,12 +33,14 @@ ALLOWED_HOSTS = ["*"]
 INSTALLED_APPS = [
     "django.contrib.admin", "django.contrib.auth",
     "django.contrib.contenttypes", "django.contrib.sessions",
-    "django.contrib.messages", "django.contrib.staticfiles", "corsheaders",
-    "rest_framework", "coreapi", "tasks"
+    "django.contrib.messages", "django.contrib.staticfiles",
+    'whitenoise.runserver_nostatic', "corsheaders", "rest_framework",
+    "coreapi", "tasks"
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -123,6 +125,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATIC_DIRS = [os.path.join(BASE_DIR, "static")]
 
 # Default primary key field type
